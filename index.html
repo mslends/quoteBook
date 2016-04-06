@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="quoteBook">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+  </head>
+
+  <!-- Added controller to body -->
+  <body ng-controller="mainCtrl">
+    <main>
+
+
+<!-- used ng-show to toggle the div "off" and "on" -->
+      <div class="" ng-show="toggle">
+        <input type="button" value="toggle" ng-click="toggle = !toggle">
+          <input type="text" placeholder="Quote" ng-model="newQuote.text">
+          <input type="text" placeholder="Author" ng-model="newQuote.author">
+              <input ng-click="addData()" type="button" name="name" value="Add Quote">
+      </div>
+
+
+<!-- used ng-show to toggle the div "off" and "on" -->
+      <div class="" ng-show="!toggle">
+        <input type="button" value="toggle" ng-click="toggle = !toggle">
+        <input type="text" placeholder="Enter text to remove" ng-model="quote.text">
+      </div>
+
+
+<!-- Repeated over the data object, filtering by text from each quote.  Added removeData function to the repeat to repeat over each quote so I can simply click on the "Remove Quote button" to remove the quote. -->
+      <div ng-repeat="quote in quotes | filter: quote.text" class="">
+        "{{quote.text}}"
+        -- {{quote.author}}  <input ng-click="removeData(quote.text)" type="button" name="name" value="Remove Quote">
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mainCtrl.js"></script>
+    <script src="js/dataService.js"></script>
+  </body>
+</html>
